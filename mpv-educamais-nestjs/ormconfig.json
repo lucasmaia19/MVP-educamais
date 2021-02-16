@@ -4,8 +4,18 @@
     "port": "3306",
     "username": "root",
     "password": "root",
-    "database": "mvpeducamaisnodejs",
+    "database": "mvp_educamais_nestjs",
     "synchronize": true,
     "logging": true,
-    "entities": ["dist/**/*.entity{.ts,.js}"]
+    "entities": [
+      "dist/modules/**/*.entity{.ts,.js}"
+    ],
+    "migrations": [
+      "src/migrations/**/*.{ts,js}"
+    ],
+    "cli": {
+      "entitiesDir": "src/modules",
+      "migrationsDir": "src/migrations"
+    }
+
   }
