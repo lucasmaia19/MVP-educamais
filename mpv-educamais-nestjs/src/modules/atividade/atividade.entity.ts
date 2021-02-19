@@ -8,14 +8,14 @@ export class Atividade {
     @PrimaryGeneratedColumn()
     id: number;
 
-    // @Column()
-//     data: Date;
+    @Column()
+    data: Date;
 
-//     @Column()
-//     estado: boolean;
-    
-//     @Column()
-//     nota: number;
+    @Column()
+    estado: boolean;
+
+    @Column()
+    nota: number;
 
     @Column()
     nome: string;
