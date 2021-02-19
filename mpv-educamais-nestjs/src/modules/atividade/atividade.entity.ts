@@ -20,4 +20,4 @@ export class Atividade {
     @Column()
     nome: string;
 
-}
+} 
