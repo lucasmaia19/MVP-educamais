@@ -11,11 +11,14 @@ export class Atividade {
     @Column()
     data: Date;
 
-    @Column()
-    estado: boolean;
+    // @Column()
+    // estado: boolean; 
 
     @Column()
     nota: number;
+
+    @Column()
+    enunciado: string;
 
     @Column()
     nome: string;
