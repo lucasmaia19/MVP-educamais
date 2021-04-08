@@ -15,6 +15,11 @@ export class AtividadeController {
     return this.service.list();
   }
 
+  @Get(':id/')
+  async listId(@Param('id') id): Promise<any> {
+    return this.service.listId(id);
+  }  
+
   @Post('')
   async create(@Body() atividade: Atividade): Promise<any> {
     return this.service.create(atividade);

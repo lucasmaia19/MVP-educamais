@@ -15,6 +15,10 @@ export class AtividadeService {
         return await this.repository.find();
     }
 
+    async listId(id): Promise<Atividade> {
+        return await this.repository.findOne(id);
+    }
+
     async  create(atividade: Atividade): Promise<Atividade> {
         return await this.repository.save(atividade);
     }
