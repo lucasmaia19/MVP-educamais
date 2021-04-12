@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atividade-pdf" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a98f722c-f0d2-46ee-b984-e2fe0dbced49">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="src\main\resources\conf\conexao-report.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="atividade_id" class="java.lang.Long"/>
+	<parameter name="cabecalho_id" class="java.lang.Long"/>
+	<queryString language="plsql">
+		<![CDATA[SELECT 
+
+	(SELECT nome_escola FROM cabecalho WHERE id = $P{cabecalho_id})  nome_escola,
+	(SELECT logo_escola FROM cabecalho WHERE id = $P{cabecalho_id})  logo_escola,
+
+	id, 
+	nome, 
+	enunciado, 
+	arquivo 
+
+FROM 
+	atividade 
+
+WHERE 
+	id = $P{atividade_id}]]>
+	</queryString>
+	<field name="nome_escola" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome_escola"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome_escola"/>
+	</field>
+	<field name="logo_escola" class="byte[]">
+		<property name="com.jaspersoft.studio.field.name" value="logo_escola"/>
+		<property name="com.jaspersoft.studio.field.label" value="logo_escola"/>
+	</field>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="atividade"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="atividade"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="enunciado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="enunciado"/>
+		<property name="com.jaspersoft.studio.field.label" value="enunciado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="atividade"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="arquivo" class="byte[]">
+		<property name="com.jaspersoft.studio.field.name" value="arquivo"/>
+		<property name="com.jaspersoft.studio.field.label" value="arquivo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="atividade"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="115" splitType="Stretch">
+			<textField>
+				<reportElement x="290" y="48" width="250" height="30" uuid="a8c2690f-8ac4-4303-9a8b-d4b6da59fb06">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e9f6c598-3bc5-4399-8e02-3223c21abd74"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome_escola}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="10" y="10" width="110" height="80" uuid="6fa15b52-e210-46ef-94fb-a3182961adf2"/>
+				<imageExpression><![CDATA[$F{logo_escola}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="530" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="10" width="540" height="30" uuid="78ea0241-9566-4f99-a4e8-d023ce901245">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e9f6c598-3bc5-4399-8e02-3223c21abd74"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="50" width="540" height="90" uuid="f92418fb-ac05-4b77-ad72-304a4d64caba">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="85da9b64-7235-433b-ad4c-8ef481b39fdc"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enunciado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="490" y="500" width="80" height="20" uuid="b970d05b-f1c0-45a0-9710-f4bbc9c3593a"/>
+				<text><![CDATA[v0.5.11]]></text>
+			</staticText>
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="102" y="140" width="350" height="380" uuid="4dfd3601-c83e-4d6e-aeed-8f97658b9501"/>
+				<imageExpression><![CDATA[$F{arquivo}]]></imageExpression>
+			</image>
+		</band>
+		<band height="50"/>
+	</detail>
+</jasperReport>

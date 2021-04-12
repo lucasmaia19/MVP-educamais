@@ -1,3 +1,8 @@
+# etapas para instalar
+## 01 ....
+## 02 instalar python 3.9.4 com path no sistema
+## 03 instalar Visual Studio mais recente incluindo Desenvolvimento de desktop com C ++
+## 04 npm install node-jasper
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
